@@ -1,5 +1,6 @@
 #include <utility>
 #include <regex>
+#include <vector>
 
 class Checkout {
 	public:
@@ -7,11 +8,13 @@ class Checkout {
 		~Checkout() {}
 
 
+		void scan(const double item);
 		const static std::string PRICES;
 
 
 	private:
 		std::map<int, std::pair<std::string, double>> products;
+		std::vector<int> basket;
 
 	
 

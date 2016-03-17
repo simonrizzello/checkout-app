@@ -20,9 +20,6 @@ Checkout::Checkout()
 		while(getline(infile, line)) {
 			smatch m;
 			if (regex_match(line, m, price_line)) {
-				for (auto result : m) {
-					cout << "[" << result << "]" << endl;
-				}
 				pair<const string, 
 				     const double> p(m[2], stod(m[3]));
 				products.insert(pair<int, 
@@ -31,5 +28,21 @@ Checkout::Checkout()
 		}
 
 	}
+
+}
+
+void Checkout::scan(const double item)
+{
+	map<int, std::pair<std::string, double>>::iterator it;
+	it = products.find(item);
+	if (it != products.end()) {
+		basket.push_back(item);
+		cout << "Added: " 
+		     << it->second.first << " : £" 
+		     << it->second.second << endl;
+	}
+	else
+		cout << "unknown item code : " << it->first << endl;;
+
 
 }
