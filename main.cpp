@@ -17,6 +17,7 @@ int main() {
 	co->scan(1);
 	co->scan(2);
 	co->scan(3);
+	co->scan(42);
 
 	return 0;
 }

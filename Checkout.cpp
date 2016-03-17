@@ -42,7 +42,7 @@ void Checkout::scan(const double item)
 		     << it->second.second << endl;
 	}
 	else
-		cout << "unknown item code : " << it->first << endl;;
+		cout << "unknown item code : " << item << endl;;
 
 
 }
