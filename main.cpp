@@ -19,6 +19,9 @@ int main() {
 	co->scan(3);
 	co->scan(42);
 
+	double price = co->total();
+
+	cout << "Basket total " << price << endl;
 	return 0;
 }
 

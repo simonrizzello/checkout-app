@@ -9,6 +9,9 @@ class Checkout {
 
 
 		void scan(const double item);
+		double total();
+
+
 		const static std::string PRICES;
 
 

@@ -46,3 +46,16 @@ void Checkout::scan(const double item)
 
 
 }
+
+double Checkout::total()
+{
+	double result = 0;
+
+	for (auto item : basket) {
+		result += products.find(item)->second.second;
+		
+	}
+
+	return result;
+}
+
