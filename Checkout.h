@@ -8,11 +8,7 @@ class Checkout {
 	public:
 		// Constructor function with takes a lambda function that implments the
 		// adding up of items in the checkout as a parameter.
-		Checkout(
-				std::function<double(
-					std::map<int, 
-					std::pair<std::string, double>>, 
-					std::vector<int>)> f);
+		Checkout(std::function<double(product_list, std::vector<int>)> f);
 		~Checkout() {}
 
 
@@ -26,14 +22,12 @@ class Checkout {
 		// Method to test lambda functionality.
 		void lambdaTest();
 
-		std::map<int, std::pair<std::string, double>> products;
+		product_list products;
 		std::vector<int> basket;
 
 
 	private:
 		// Place holder for our lambda function to add up the shopping basket.
-		std::function<double(
-				std::map<int, std::pair<std::string, double>>,
-				std::vector<int>)> sumup;
+		std::function<double(product_list, std::vector<int>)> sumup;
 
 };
