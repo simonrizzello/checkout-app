@@ -19,9 +19,6 @@ class Checkout {
 		// File name for the product list (used on constructor.)
 		const static std::string PRICES;
 
-		// Method to test lambda functionality.
-		void lambdaTest();
-
 		product_list products;
 		std::vector<int> basket;
 

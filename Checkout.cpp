@@ -53,16 +53,8 @@ void Checkout::scan(const double item)
 
 }
 	
+// Total up the shopping basket using the lambda function passed to the constructor.
 double Checkout::total()
 {
-	double result = 0;
-
-	result = sumup(products, basket);
-	
-	return result;
-}
-
-void Checkout::lambdaTest()
-{
-	cout << "Lambda test function has been called." << endl;
+	return sumup(products, basket);
 }
