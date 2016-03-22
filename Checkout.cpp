@@ -58,3 +58,9 @@ double Checkout::total()
 {
 	return sumup(products, basket);
 }
+
+void Checkout::empty_basket()
+{
+	basket.clear();
+
+}

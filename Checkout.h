@@ -14,6 +14,7 @@ class Checkout {
 
 		void scan(const double item);
 		double total();
+		void empty_basket();
 
 
 		// File name for the product list (used on constructor.)

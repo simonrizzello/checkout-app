@@ -25,7 +25,7 @@ int main() {
 	const double discount_threshold = 60.0;
 
 	// The function to add up the basket is implemented here as a lambda function.
-	// In this way it is easy to configure the API to change the promotional rules.
+	// In this way it is easy to configure the application to change the promotional rules.
 	function<double(map<int, pair<string, double>>, vector<int>)> promotional_rules =
 		[&promotions_list, discount_threshold]
 		(map<int, pair<string, double>> prods, vector<int> bskt) {
@@ -54,6 +54,25 @@ int main() {
 	co->scan(42);
 
 	double price = co->total();
+
+	cout << "Basket total " << price << endl;
+	co->empty_basket();
+
+	co->scan(1);
+	co->scan(3);
+	co->scan(1);
+
+	price = co->total();
+
+	cout << "Basket total " << price << endl;
+	co->empty_basket();
+
+	co->scan(1);
+	co->scan(2);
+	co->scan(1);
+	co->scan(3);
+
+	price = co->total();
 
 	cout << "Basket total " << price << endl;
 
