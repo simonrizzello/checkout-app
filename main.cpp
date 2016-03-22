@@ -10,7 +10,7 @@ using namespace std;
 
 int main() {
 
-	cout	<< "Hello, World!" << endl;
+	cout	<< "Checkout Application Program" << endl;
 
 	cout << "Reading " << "products_list.txt" << endl;
 
