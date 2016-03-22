@@ -2,9 +2,17 @@
 #include <regex>
 #include <vector>
 
+using product_list = std::map<int, std::pair<std::string, double>>;
+
 class Checkout {
 	public:
-		Checkout(std::function<void()> f);
+		// Constructor function with takes a lambda function that implments the
+		// adding up of items in the checkout as a parameter.
+		Checkout(
+				std::function<double(
+					std::map<int, 
+					std::pair<std::string, double>>, 
+					std::vector<int>)> f);
 		~Checkout() {}
 
 
@@ -14,22 +22,18 @@ class Checkout {
 
 		// File name for the product list (used on constructor.)
 		const static std::string PRICES;
-		// Check the prive for the item in the product list.
-		double findItemPrice(int item);
-		// Get an iterator to the next item in the basket.
-		const std::vector<int>::iterator& getBasketIterator();
 
 		// Method to test lambda functionality.
 		void lambdaTest();
 
-	private:
 		std::map<int, std::pair<std::string, double>> products;
 		std::vector<int> basket;
 
-		// Maintain this iterator to allow us to add up items
-		// easily.
-		std::vector<int>::iterator basket_it;
 
-		std::function<void()> sumup;
+	private:
+		// Place holder for our lambda function to add up the shopping basket.
+		std::function<double(
+				std::map<int, std::pair<std::string, double>>,
+				std::vector<int>)> sumup;
 
 };

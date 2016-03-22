@@ -7,11 +7,8 @@
 using namespace std;
 const string Checkout::PRICES = "products_list.txt";
 
-Checkout::Checkout(std::function<void()> f) : sumup{f}
+Checkout::Checkout(function<double(map<int, pair<string,double>>, vector<int>)> f) : sumup{f}
 {
-	// Basket should intiially be empty.
-	basket_it = basket.end();
-
 	ifstream infile(PRICES);
 
 	regex price_line(
@@ -43,33 +40,19 @@ void Checkout::scan(const double item)
 		cout << "Added: " 
 		     << it->second.first << " : £" 
 		     << it->second.second << endl;
-		// Every time we add  new item, reset the basket
-		// iterator -- keeps the code for adding up the
-		// basket simpler
-		basket_it = basket.begin();
 	}
 	else
 		cout << "unknown item code : " << item << endl;;
 
 
 }
-const vector<int>::iterator& Checkout::getBasketIterator()
-{
-	return basket_it;
-}
 	
 double Checkout::total()
 {
 	double result = 0;
 
-	for (auto item : basket) {
-		result += products.find(item)->second.second;
-		
-	}
-
-	// Test calling of lambda function here:
-	sumup();
-
+	result = sumup(products, basket);
+	
 	return result;
 }
 
