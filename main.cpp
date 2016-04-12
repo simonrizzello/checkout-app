@@ -1,3 +1,12 @@
+/**
+ * @author Simon Rizzello
+ * @date March 2016
+ *
+ * Supermarket checkout programming project.
+ *
+ * A small application to demonstrate the use of lambda
+ * expressions in C++ 11.
+ */
 #include <iostream>
 #include <fstream>
 #include <utility>
