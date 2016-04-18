@@ -7,10 +7,44 @@
 
 using namespace std;
 
+void read_in_test_data(string filename)
+{
+	// Open the test file.
+	ifstream infile(filename);
+
+	regex test_line("Basket:");
+
+	string line;
+
+	if (infile.is_open()) {
+		while(getline(infile, line)) {
+			smatch m;
+			if (regex_search(line, m, test_line)) {
+				cout << "Found match for price items: "
+					<< line << endl;
+				regex scan_item("[0-9]+");
+				sregex_iterator it(line.begin(), line.end(), scan_item);
+				sregex_iterator it_end;
+				while(it != it_end) {
+					cout << *it << endl;
+					++it;
+				}
+			} else {
+				cout << "No match found: " << line << endl;
+			}
+		}
+
+	}
+}
 
 int main() {
 
 	cout	<< "Hello, World!" << endl;
+
+	cout << "Read in test data" << endl;
+
+	read_in_test_data("test_data.txt");
+
 
 	cout << "Reading " << "products_list.txt" << endl;
 
